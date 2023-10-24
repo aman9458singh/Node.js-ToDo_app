@@ -1,8 +1,10 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
-const connectDb = ()=>{mongoose.connect(process.env.MONGO_URI,{dbName:"backendapi"})
-.then((c)=>{console.log(`database connected on ${c.connection.host}`)})
-.catch((e)=>{console.log(e)})
-}
-
-export default connectDb;
+export const connectDB = () => {
+  mongoose
+    .connect(process.env.MONGO_URI, {
+      dbName: "backendapi",
+    })
+    .then((c) => console.log(`Database Connected with ${c.connection.host}`))
+    .catch((e) => console.log(e));
+};
